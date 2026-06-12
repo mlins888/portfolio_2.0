@@ -4,7 +4,8 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Lake } from "./Components/lake";
 import { Mountains } from "./Components/mountains";
 import { ShoreRock } from "./Components/shorerock";
-import { ShoreRocks } from "./Components/shorerock"
+import { ShoreRocks } from "./Components/shorerock";
+import { Grass } from "./Components/grass";
 
 // Elevated, gently swaying camera so you look DOWN onto the lake surface.
 // In 3D the geometry never changes — only where the camera sits.
@@ -61,6 +62,10 @@ export default function Landing() {
         <Mountains />
         <ShoreRocks />
         <Lake />
+        <Grass position={[3, 7, 19]} area={[7, 7]} count={500} />
+        <Grass position={[-4.5, 9, 19]} area={[7, 7]} count={500} />
+        <Grass position={[-10, 11, 19]} area={[7, 7]} count={500} />
+        <Grass position={[10.2, 9, 19]} area={[7, 7]} count={500} />
       </Canvas>
 
       <div className="vignette" />

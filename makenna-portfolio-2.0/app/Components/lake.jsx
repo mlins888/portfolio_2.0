@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const FAR  = new THREE.Color("#9a5cd0");  // violet, by the mountains
-const MID  = new THREE.Color("#2f6fd0");  // blue, middle
+const FAR  = new THREE.Color("#9666cd");  // violet, by the mountains
+const MID  = new THREE.Color("#3a76d0");  // blue, middle
 const NEAR = new THREE.Color("#15c5b8");  // vivid teal, closest edge
 
 // The rippling low-poly lake. A flat plane of triangles whose vertices

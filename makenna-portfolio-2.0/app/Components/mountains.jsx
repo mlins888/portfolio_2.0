@@ -21,6 +21,7 @@ const PEAKS = [
   // ---- right bank ----
   { x:  24, z: -24, r: 12, h: 14, seg: 5, color: "#566a9c" },
   { x:  30, z:   0, r: 13, h: 15, seg: 6, color: "#4a6a86" },
+  { x:  35, z: -19, r: 13, h: 15, seg: 6, color: "#4a6a86" },
   { x:  20, z:  22, r:  9, h: 10, seg: 4, color: "#3f5f7a" }, // small, front-right
   // ---- left bank ----
   { x: -12, z:  18, r:  9, h: 10, seg: 4, color: "#3f467a" }, // small, front-left

@@ -59,10 +59,20 @@ const ROCKS = [
   { x: -20, z: -11, s: 2.4, rot: 1, seed: 4, h: 0.8 },
   { x: -24, z: -4, s: 2.1, rot: 1, seed: 5 },
   { x: 14, z: -18, s: 2.3, rot: 0.8, seed: 6 },
+  { x: 19, z: -10, s: 2.3, rot: 0.8, seed: 6 },
+  { x: 24, z: -12, s: 2.3, rot: 0.8, seed: 6, y: 1.5 },
+  { x: 24, z: -6, s: 2.3, rot: 1.4, seed: 6, y: 1.5 },
+  { x: 28, z: -8, s: 2.3, rot: 1.4, seed: 6, y: 1.5 },
+  { x: 20, z: -4, s: 2.3, rot: 1.4, seed: 6 },
   { x: 5, z: -23, s: 2.5, rot: 2.4, seed: 7 },
   { x: -3, z: -18, s: 2.2, rot: 0.6, seed: 8 },
   { x: -10, z: -20, s: 2.4, rot: 1.9, seed: 9 },
-  { x: 0, z: 8, s: 2.0, rot: 1.2, seed: 10 },
+  //foreground
+  { x: 10, z: 19, s: 2.0, rot: 1.2, seed: 10, y: 7 },
+  { x: 5, z: 19, s: 2.0, rot: 1.2, seed: 10, y: 5 },
+  { x: 0, z: 19, s: 2.0, rot: 1.2, seed: 10, y: 5 },
+  { x: -5, z: 19, s: 2.0, rot: 1.2, seed: 10, y: 7 },
+  { x: -10, z: 19, s: 2.0, rot: 1.2, seed: 10, y: 9 },
 ];
 
 const SHORE_Y = -1.5; // base height — slightly below the water so rocks sit in the shore
@@ -74,7 +84,7 @@ export function ShoreRocks() {
       {ROCKS.map((r, i) => (
         <ShoreRock
           key={i}
-          position={[r.x, SHORE_Y, r.z]}
+          position={[r.x, r.y ?? SHORE_Y, r.z]}
           // scale is [width, height, depth] — width/depth use WIDTH (or the
           // rock's own `w`), height stays at `s`, so bigger != taller.
           scale={[r.s * (r.w ?? WIDTH), r.s * (r.h ?? 1), r.s * (r.w ?? WIDTH)]}
