@@ -3,6 +3,8 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Lake } from "./Components/lake";
 import { Mountains } from "./Components/mountains";
+import { ShoreRock } from "./Components/shorerock";
+import { ShoreRocks } from "./Components/shorerock"
 
 // Elevated, gently swaying camera so you look DOWN onto the lake surface.
 // In 3D the geometry never changes — only where the camera sits.
@@ -12,8 +14,8 @@ function CameraRig() {
     const t = state.clock.elapsedTime;
     camera.position.x = Math.sin(t * 0.12) * 1.4;
     camera.position.y = 20.5;
-    camera.position.z = 11 + Math.cos(t * 0.1) * 0.8;
-    camera.lookAt(0, 10, -6);
+    camera.position.z = 31 + Math.cos(t * 0.1) * 0.8;
+    camera.lookAt(0, 5, -6);
   });
   return null;
 }
@@ -57,6 +59,7 @@ export default function Landing() {
         <directionalLight color="#ffe9d6" intensity={0.9} position={[-6, 9, 6]} />
         <directionalLight color="#c9a9cf" intensity={0.55} position={[5, 4, -8]} />
         <Mountains />
+        <ShoreRocks />
         <Lake />
       </Canvas>
 

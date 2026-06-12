@@ -11,17 +11,22 @@ import * as THREE from "three";
 //   color = its color
 const PEAKS = [
   // ---- behind the lake (far side) ----
-  { x: -24, z: -32, r: 4, h: 6, seg: 6, color: "#6f7fb0" },
-  { x:   6, z: -42, r: 19, h: 24, seg: 6, color: "#5d6ba0" }, // tallest, back-center
-  { x:  30, z: -32, r: 14, h: 17, seg: 5, color: "#4a6a86" },
+  { x: -24, z: -32, r: 14, h: 16, seg: 6, color: "#7c8ab3" },
+  { x:   -16, z: -42, r: 19, h: 24, seg: 7, color: "#5d6ba0" }, // tallest, back-center
+  { x:  0, z: -32, r: 14, h: 17, seg: 5, color: "#7488b4" },
+  { x: -4, z: -32, r: 14, h: 6, seg: 6, color: "#7c8ab3" }, //small rock
+  { x: 30, z: -12, r: 14, h: 6, seg: 6, color: "#7c7eb3" }, //small rock
+  { x:   16, z: -52, r: 19, h: 24, seg: 7, color: "#5d6ba0" }, // tallest, back-center
+  { x:  20, z: -32, r: 14, h: 17, seg: 5, color: "#7480b4" },
   // ---- right bank ----
-  { x:  54, z: -24, r: 12, h: 14, seg: 5, color: "#566a9c" },
-  { x:  60, z:   0, r: 13, h: 15, seg: 6, color: "#4a6a86" },
-  { x:  50, z:  22, r:  9, h: 10, seg: 4, color: "#3f5f7a" }, // small, front-right
+  { x:  24, z: -24, r: 12, h: 14, seg: 5, color: "#566a9c" },
+  { x:  30, z:   0, r: 13, h: 15, seg: 6, color: "#4a6a86" },
+  { x:  20, z:  22, r:  9, h: 10, seg: 4, color: "#3f5f7a" }, // small, front-right
   // ---- left bank ----
-  { x: -52, z:  18, r:  9, h: 10, seg: 4, color: "#3f5f7a" }, // small, front-left
-  { x: -62, z:  -2, r: 13, h: 15, seg: 6, color: "#4a6a86" },
-  { x: -54, z: -26, r: 12, h: 14, seg: 5, color: "#566a9c" },
+  { x: -12, z:  18, r:  9, h: 10, seg: 4, color: "#3f467a" }, // small, front-left
+  { x: -32, z:  -2, r: 13, h: 15, seg: 6, color: "#4a6a86" },
+  { x: -34, z: -26, r: 12, h: 14, seg: 5, color: "#566a9c" },
+  { x: -30, z: -16, r: 12, h: 14, seg: 5, color: "#566a9c" }
 ];
 
 // Height at which every peak's base sits (just below the lake surface).
