@@ -1,4 +1,5 @@
 import "./globals.css";
+import Nav from "./nav";
 import Scene from "./scene";
 
 export const metadata = {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Scene />              {/* persistent 3D world, behind every page */}
+        <Nav />
         <main>{children}</main>  {/* the current page, on top */}
       </body>
     </html>

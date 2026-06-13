@@ -1,24 +1,48 @@
 "use client";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Lake } from "./Components/lake";
-import { Mountains } from "./Components/mountains";
-import { ShoreRock } from "./Components/shorerock";
-import { ShoreRocks } from "./Components/shorerock";
-import { Grass } from "./Components/grass";
-import { Signpost } from "./Components/signpost";
+import * as THREE from "three";
+import { useRef } from "react";
+import { usePathname } from "next/navigation";
 
-// Elevated, gently swaying camera so you look DOWN onto the lake surface.
-// In 3D the geometry never changes — only where the camera sits.
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Lake } from "./components/lake";
+import { Mountains } from "./components/mountains";
+import { ShoreRock } from "./components/shorerock";
+import { ShoreRocks } from "./components/shorerock";
+import { Grass } from "./components/grass";
+import { Signpost } from "./components/signpost";
+
+
+const POSES = {
+  "/":        { pos: [0, 20.5, 31], target: [0, 5, -6] },   // overhead, on the lake
+  "/contact": { pos: [0, 24, 30],   target: [0, 30, -5] },  // tilted up, at the sky
+};
+
 function CameraRig() {
   const { camera } = useThree();
+  const pathname = usePathname();
+
+  // the eased "base" position, and the point we're looking at
+  const base = useRef(new THREE.Vector3(0, 20.5, 31));
+  const look = useRef(new THREE.Vector3(0, 5, -6));
+
   useFrame((state) => {
+    const pose = POSES[pathname] ?? POSES["/"]; // unknown routes fall back to home
+
+    // ease a fraction of the way toward the target pose each frame
+    base.current.lerp(new THREE.Vector3(...pose.pos), 0.04);
+    look.current.lerp(new THREE.Vector3(...pose.target), 0.04);
+
+    // gentle sway, layered on top of the eased base
     const t = state.clock.elapsedTime;
-    camera.position.x = Math.sin(t * 0.12) * 1.4;
-    camera.position.y = 20.5;
-    camera.position.z = 31 + Math.cos(t * 0.1) * 0.8;
-    camera.lookAt(0, 5, -6);
+    camera.position.set(
+      base.current.x + Math.sin(t * 0.12) * 1.4,
+      base.current.y,
+      base.current.z + Math.cos(t * 0.1) * 0.8
+    );
+    camera.lookAt(look.current);
   });
+
   return null;
 }
 

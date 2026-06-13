@@ -14,6 +14,30 @@ main { pointer-events: none; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; overflow: hidden; background: #11142b; }
 
+
+/* NAVIGATION BAR */
+.nav {
+  position: fixed;
+  top: 2rem;
+  right: 2.5rem;
+  z-index: 10;
+  display: flex;
+  gap: 1.8rem;
+  font-family: "Jost", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+}
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.nav a:hover {
+  opacity: 1;
+}
+
 .scene {
   position: fixed;
   inset: 0;
@@ -29,6 +53,77 @@ html, body { height: 100%; overflow: hidden; background: #11142b; }
 
 .scene canvas { position: absolute; inset: 0; display: block; z-index: 0; }
 
+
+/* CONTACT */
+.contact {
+  position: fixed;          /* float over the whole view */
+  inset: 0;
+  z-index: 1;
+  display: flex;            /* center the text block in the sky */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.2rem;
+  padding: 0 8vw;
+  color: var(--ink);
+  pointer-events: none;     /* let clicks fall through to the scene... */
+  animation: rise-in 1s ease 0.3s both;  /* fade up as the camera settles */
+}
+.contact h1 {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 30px rgba(20, 16, 40, 0.55);
+}
+.contact p {
+  font-family: "Jost", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  letter-spacing: 0.04em;
+  max-width: 34ch;
+  opacity: 0.9;
+}
+.contact a {
+  pointer-events: auto;     /* ...but keep the email itself clickable */
+  font-family: "Jost", system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  letter-spacing: 0.14em;
+  color: var(--sky-blush);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.25s, border-color 0.25s;
+}
+.contact a:hover {
+  color: var(--ink);
+  border-color: var(--sky-blush);
+}
+
+.socials {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 0.4rem;
+}
+.socials a {
+  pointer-events: auto;       /* clickable, since .contact ignores pointer events */
+  display: inline-flex;
+  font-size: 1.5rem;          /* react-icons size follows font-size */
+  color: var(--ink);
+  opacity: 0.8;
+  border-bottom: none;        /* undo the email link's underline */
+  padding-bottom: 0;
+  transition: color 0.25s, opacity 0.25s, transform 0.25s;
+}
+.socials a:hover {
+  color: var(--sky-blush);
+  opacity: 1;
+  transform: translateY(-2px);  /* gentle lift on hover */
+}
+
+
+/* SCENE */
 .vignette {
   position: absolute;
   inset: 0;
@@ -53,7 +148,7 @@ html, body { height: 100%; overflow: hidden; background: #11142b; }
 @keyframes pulse { 0%, 100% { opacity: 0.35; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.15); } }
 @keyframes drift { from { translate: 0 0; } to { translate: var(--dx, 12px) var(--dy, -14px); } }
 
-/* Title */
+/* TITLE */
 .title {
   position: absolute;
   z-index: 2;
