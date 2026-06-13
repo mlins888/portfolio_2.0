@@ -1,4 +1,5 @@
 import "./globals.css";
+import Scene from "./scene";
 
 export const metadata = {
   title: "Makenna Linsky Portfolio",
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Scene />              {/* persistent 3D world, behind every page */}
+        <main>{children}</main>  {/* the current page, on top */}
+      </body>
     </html>
   );
 }

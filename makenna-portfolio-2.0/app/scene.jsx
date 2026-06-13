@@ -72,11 +72,6 @@ export default function Landing() {
 
       <div className="vignette" />
       <Fireflies />
-
-      <div className="title">
-        <h1>MAKENNA&nbsp;LINSKY</h1>
-        <p>PORTFOLIO</p>
-      </div>
     </div>
   );
 }

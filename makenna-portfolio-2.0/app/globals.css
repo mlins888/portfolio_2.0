@@ -9,6 +9,8 @@
   --firefly: #ffe7a0;
 }
 
+main { pointer-events: none; }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; overflow: hidden; background: #11142b; }
 
@@ -17,7 +19,7 @@ html, body { height: 100%; overflow: hidden; background: #11142b; }
   inset: 0;
   z-index: 0;
   background: radial-gradient(
-    120% 80% at 50% 78%,
+    120% 80% at 50% 38%,
     var(--sky-blush) 0%,
     var(--sky-glow) 14%,
     var(--sky-mid) 42%,
