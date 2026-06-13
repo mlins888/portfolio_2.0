@@ -6,6 +6,7 @@ import { Mountains } from "./Components/mountains";
 import { ShoreRock } from "./Components/shorerock";
 import { ShoreRocks } from "./Components/shorerock";
 import { Grass } from "./Components/grass";
+import { Signpost } from "./Components/signpost";
 
 // Elevated, gently swaying camera so you look DOWN onto the lake surface.
 // In 3D the geometry never changes — only where the camera sits.
@@ -66,6 +67,7 @@ export default function Landing() {
         <Grass position={[-4.5, 9, 19]} area={[7, 7]} count={500} />
         <Grass position={[-10, 11, 19]} area={[7, 7]} count={500} />
         <Grass position={[10.2, 9, 19]} area={[7, 7]} count={500} />
+        <Signpost position={[10, 9, 19]} scale={1.4} />
       </Canvas>
 
       <div className="vignette" />
